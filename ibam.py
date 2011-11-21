@@ -6,7 +6,7 @@
 
 # This script is to be embedded in an iframe.
 
-import os
+import os, locale
 
 ## Config ##
 
@@ -17,10 +17,13 @@ thumbsize = [100, 100] # Width and height for thumbnails.
 midsize = [200, 200] # Width and height for center image.
 larrow = "left.png" # Left arrow image.
 rarrow = "right.png" # Right arrow image.
+loc = "en_US.UTF-8" # Your locale string. Leave alone if unsure.
 
 ## Setup and Functions ##
 
-images = os.listdir(album) # Fill images array with image paths.
+images = os.listdir(album) # Fill images array with alphabetized image paths.
+locale.setlocale(locale.LC_ALL, loc)
+images = sorted(images, cmp=locale.strcoll)
 i = 0
 while i < len(images):
 	images[i] = album+images[i]
