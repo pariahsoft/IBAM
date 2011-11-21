@@ -82,11 +82,40 @@ while i < len(images):
 	i+= 1
 
 print '''
+		// Preload images.
+		function preloader() {
+			var i = 0;
+			while (i < images.length) {
+				var img = new Image();
+				img.src = images[i];
+				images[i] = img.src;
+				i += 1;
+			}
+		}
+		
+		// Make sure page is loaded before loading images.
+		// Courtesy of http://perishablepress.com/
+		function onLoad(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function() {
+					if (oldonload) {
+						oldonload();
+					}
+					func();
+				}
+			}
+		}
+		
+		// Get an image from the list, work around negative modulus bug.
 		function get(index)
 		{
 			return images[(((index % images.length) + images.length) % images.length)];
 		}
-	
+		
+		// Cycle the images.
 		function move()
 		{
 			var i = 0;
@@ -97,18 +126,20 @@ print '''
 				i += 1;
 			}
 		}
-	
+		
 		function prev()
 		{
 			pos -= 1;
 			move();
 		}
-	
+		
 		function next()
 		{
 			pos += 1;
 			move();
 		}
+		
+		onLoad(preloader);
 	</script>
 </head>
 <body>
