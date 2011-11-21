@@ -89,6 +89,9 @@ while i < len(images):
 print '''
 		// Preload images.
 		function preloader() {
+			var tmp = new Image();
+			tmp.src = "'''+larrow+'''";
+			tmp.src = "'''+rarrow+'''";
 			var i = 0;
 			while (i < images.length) {
 				var img = new Image();
