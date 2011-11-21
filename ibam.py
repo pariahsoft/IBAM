@@ -17,7 +17,7 @@ thumbsize = [100, 100] # Width and height for thumbnails.
 midsize = [200, 200] # Width and height for center image.
 larrow = "left.png" # Left arrow image.
 rarrow = "right.png" # Right arrow image.
-loc = "en_US.UTF-8" # Your locale string. Leave alone if unsure.
+loc = "en_US.UTF-8" # Your locale string for filename sorting. Leave alone if unsure.
 
 ## Setup and Functions ##
 
