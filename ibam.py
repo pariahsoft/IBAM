@@ -144,7 +144,7 @@ print '''
 			move();
 		}
 		
-		onLoad(preloader);
+		onLoad(preloader());
 	</script>
 </head>
 <body>
