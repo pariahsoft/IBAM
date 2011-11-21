@@ -13,5 +13,9 @@ Features:
 * No flashy gimmicks or complicated settings and controls.
 * Made to be embedded, unlike other software where embedding is an afterthought.
 * An album can be set up in a couple of minutes.
+If your server doesn't support python, you can run and pipe the script into an HTML file and upload that instead. (New images won't be added automatically with this method.)
 * It's released under the MIT License for maximum freedom.
+
+Planned Features:
+* Preserve album dimensions while also preserving aspect ratio of different sized images.
 
