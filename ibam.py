@@ -29,6 +29,8 @@ while i < len(images):
 	images[i] = album+images[i]
 	i += 1
 
+first = -(count/2) # First image position.
+
 def get(index): # Helper function to cycle the image list.
 	return images[index % len(images)]
 
@@ -76,7 +78,7 @@ print '''<!doctype html>
 		}
 	</style>
 	<script type="text/javascript">
-		var pos = 0;
+		var pos = '''+str(first)+''';
 		var images = new Array();'''
 
 i = 0 # Pass the list of images to a javascript array.
@@ -152,12 +154,12 @@ print '''
 i = 0
 while i < count: # Insert initial album images.
 	if i == (count / 2):
-		print "\t<a id=\"a"+str(i)+"\" href=\""+get(i)+"\" target=\"_blank\">"
-		print "\t\t<img class=\"full\" id=\"img"+str(i)+"\" src=\""+get(i)+"\" />"
+		print "\t<a id=\"a"+str(i)+"\" href=\""+get(i+first)+"\" target=\"_blank\">"
+		print "\t\t<img class=\"full\" id=\"img"+str(i)+"\" src=\""+get(i+first)+"\" />"
 		print "\t</a>"
 		i += 1
-	print "\t<a id=\"a"+str(i)+"\" href=\""+get(i)+"\" target=\"_blank\">"
-	print "\t\t<img class=\"thumb\" id=\"img"+str(i)+"\" src=\""+get(i)+"\" />"
+	print "\t<a id=\"a"+str(i)+"\" href=\""+get(i+first)+"\" target=\"_blank\">"
+	print "\t\t<img class=\"thumb\" id=\"img"+str(i)+"\" src=\""+get(i+first)+"\" />"
 	print "\t</a>"
 	i += 1
 print '''	<a href="javascript:next()">
